@@ -2,8 +2,10 @@ import Coordinate from './interfaces/coordinate'
 
 export default class Element {
     private position: Coordinate;
+    readonly id: number;
 
-    constructor(position: Coordinate) {
+    constructor(id: number, position: Coordinate) {
+        this.id = id;
         this.position = position;
     }
 

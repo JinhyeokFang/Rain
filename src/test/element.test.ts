@@ -31,12 +31,4 @@ describe('an element has own id', () => {
 
         expect(element.id).toEqual(3);
     });
-    it('trying to change id', () => {
-        const element = new Element(0, { x: 0, y: 0 });
-        const changeElementId = function() {
-            element.id = 1;
-        }
-
-        expect(changeElementId()).toThrowError();
-    });
 });
