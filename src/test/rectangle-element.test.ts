@@ -50,9 +50,6 @@ describe('an rectangle element has its width and height', () => {
             new RectangleElement(0, { x: 0, y: 0 }, 10, 0);
         }).toThrowError('the rectangle element'+"'"+'s height must be equal or more than 0');
         expect(() => {
-            new RectangleElement(0, { x: 0, y: 0 }, 0, 0);
-        }).toThrowError('the rectangle element'+"'"+'s height must be equal or more than 0');
-        expect(() => {
             new RectangleElement(0, { x: 0, y: 0 }, 10, 20)
                 .setHeight(-20);
         }).toThrowError('the rectangle element'+"'"+'s height must be equal or more than 0');
