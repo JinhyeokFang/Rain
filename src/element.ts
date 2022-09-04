@@ -1,12 +1,13 @@
+import ElementBuilder from './element-builder';
 import Coordinate from './interfaces/coordinate'
 
 export default class Element {
     private position: Coordinate;
     readonly id: number;
 
-    constructor(id: number, position: Coordinate) {
-        this.id = id;
-        this.position = position;
+    constructor(elementBuilder: ElementBuilder) {
+        this.id = elementBuilder.getId();
+        this.position = position = elementBuilder.getPosition();
     }
 
     public getPosition(): Coordinate {
