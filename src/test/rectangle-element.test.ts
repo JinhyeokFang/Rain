@@ -9,7 +9,7 @@ describe('an rectangle element has its width and height', () => {
     it('an rectangle element has getHeight()', () => {
         const element = new RectangleElement(0, { x: 0, y: 0 }, 10, 20);
 
-        expect(element.getWidth()).toBe(10);
+        expect(element.getHeight()).toBe(20);
     });
     it('an rectangle element has setWidth()', () => {
         const element = new RectangleElement(0, { x: 0, y: 0 }, 10, 20);
@@ -17,11 +17,11 @@ describe('an rectangle element has its width and height', () => {
 
         expect(element.getWidth()).toBe(30);
     });
-    it('an rectangle element has getHeight()', () => {
+    it('an rectangle element has setHeight()', () => {
         const element = new RectangleElement(0, { x: 0, y: 0 }, 10, 20);
         element.setHeight(30);
 
-        expect(element.getWidth()).toBe(30);
+        expect(element.getHeight()).toBe(30);
     });
     it('the rectangle element'+"'"+'s width must be more than 0', () => {
         expect(() => {
