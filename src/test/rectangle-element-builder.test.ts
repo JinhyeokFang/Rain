@@ -24,3 +24,26 @@ describe('an element builder has build methods', () => {
         expect(element.getHeight()).toEqual(1);
     });
 });
+
+describe('width and height must be more than 0', () => {
+    it('the rectangle element'+"'"+'s width must be more than 0', () => {
+        expect(() => {
+            new RectangleElementBuilder()
+                .setWidth(-20);
+        }).toThrowError('the rectangle element'+"'"+'s width must be equal or more than 0');
+        expect(() => {
+            new RectangleElementBuilder()
+                .setWidth(0);
+        }).toThrowError('the rectangle element'+"'"+'s width must be equal or more than 0');
+    });
+    it('the rectangle element'+"'"+'s height must be more than 0', () => {
+        expect(() => {
+            new RectangleElementBuilder()
+                .setHeight(-20);
+        }).toThrowError('the rectangle element'+"'"+'s height must be equal or more than 0');
+        expect(() => {
+            new RectangleElementBuilder()
+                .setHeight(0);
+        }).toThrowError('the rectangle element'+"'"+'s height must be equal or more than 0');
+    });
+})
