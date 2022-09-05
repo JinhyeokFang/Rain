@@ -1,4 +1,4 @@
-import RectangleElementBuilder from '../rectangle-element-builder'
+import RectangleElementBuilder from "../builders/rectangle-element-builder";
 
 describe('an element builder has build methods', () => {
     it('an element builder has property setter', () => {

@@ -1,4 +1,4 @@
-import ElementBuilder from '../element-builder'
+import ElementBuilder from "../bases/element-builder";
 
 describe('an element builder has build methods', () => {
     it('an element builder has property setter', () => {

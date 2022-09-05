@@ -1,4 +1,4 @@
-import RectangleElementBuilder from "../rectangle-element-builder";
+import RectangleElementBuilder from "../builders/rectangle-element-builder";
 
 describe('an rectangle element has its width and height', () => {
     it('an rectangle element has getWidth()', () => {

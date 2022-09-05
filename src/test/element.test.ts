@@ -1,4 +1,4 @@
-import ElementBuilder from '../element-builder';
+import ElementBuilder from "../bases/element-builder";
 
 describe('an element has 2 dimensional coordinate', () => {
     it('an element has getPosition()', () => {

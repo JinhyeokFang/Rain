@@ -1,5 +1,5 @@
-import ElementBuilder from "./element-builder";
-import RectangleElement from "./rectangle-element";
+import ElementBuilder from "../bases/element-builder";
+import RectangleElement from "../elements/rectangle-element";
 
 export default class RectangleElementBuilder extends ElementBuilder {
     private width = 1;
