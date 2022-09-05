@@ -15,6 +15,14 @@ export default class ElementBuilder {
         return this;
     }
 
+    public getId(): number {
+        return this.id;
+    }
+
+    public getPosition(): Coordinate {
+        return this.position;
+    }
+
     public build(): Element {
         return new Element(this);
     }
