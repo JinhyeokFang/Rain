@@ -1,3 +1,5 @@
+import RainElementBuilder from "../builders/rain-element-builder";
+
 describe('a rain element has its velocity and acceleration', () => {
     it('a rain element has move method', () => {
         const rainElement = new RainElementBuilder()

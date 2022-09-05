@@ -1,5 +1,5 @@
-import ElementBuilder from './element-builder';
 import Coordinate from '../interfaces/coordinate';
+import ElementBuilder from './element-builder';
 
 export default class Element {
     private position: Coordinate;
