@@ -1,4 +1,4 @@
-import RectangleElementBuilder from '../element-builder'
+import RectangleElementBuilder from '../rectangle-element-builder'
 
 describe('an element builder has build methods', () => {
     it('an element builder has property setter', () => {
@@ -15,7 +15,7 @@ describe('an element builder has build methods', () => {
         expect(element.getHeight()).toEqual(20);
     });
     it ('an element builder'+"'"+'s properties have default value', () => {
-        const element = new ElementBuilder()
+        const element = new RectangleElementBuilder()
             .build();
 
         expect(element.id).toEqual(0);

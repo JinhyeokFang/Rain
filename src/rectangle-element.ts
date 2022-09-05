@@ -1,19 +1,14 @@
 import Element from "./element";
-import Coordinate from "./interfaces/coordinate";
+import RectangleElementBuilder from "./rectangle-element-builder";
 
 export default class RectangleElement extends Element {
-
     private width: number;
     private height: number;
 
-    constructor(id: number, position: Coordinate, width: number, height: number) {
-        super(id, position);
-        if (width <= 0)
-            throw new Error('the rectangle element'+"'"+'s width must be equal or more than 0');
-        this.width = width;
-        if (height <= 0)
-            throw new Error('the rectangle element'+"'"+'s height must be equal or more than 0');
-        this.height = height;
+    constructor(rectangleElementBuilder: RectangleElementBuilder) {
+        super(rectangleElementBuilder);
+        this.width = rectangleElementBuilder.getWidth();
+        this.height = rectangleElementBuilder.getHeight();
     }
 
     public getWidth() {

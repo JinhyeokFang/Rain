@@ -7,7 +7,7 @@ export default class Element {
 
     constructor(elementBuilder: ElementBuilder) {
         this.id = elementBuilder.getId();
-        this.position = position = elementBuilder.getPosition();
+        this.position = elementBuilder.getPosition();
     }
 
     public getPosition(): Coordinate {
