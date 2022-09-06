@@ -7,9 +7,9 @@ describe('a rain element has its velocity and acceleration', () => {
             .setAcceleration(1)
             .build();
         
-        rainElement.move(6);
-        expect(rainElement.getVelocity()).toEqual(18);
-        expect(rainElement.getPosition().y).toEqual(-36);
+        rainElement.moveByVelocity(6);
+        expect(rainElement.getVelocity()).toEqual(6);
+        expect(rainElement.getPosition().y).toEqual(18);
     });
 });
 
