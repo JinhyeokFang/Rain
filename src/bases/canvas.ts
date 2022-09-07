@@ -20,14 +20,11 @@ export default abstract class Canvas {
         this.height = 100;
     }
 
-    public startUpdateInterval(timeout: number): void {
-        this.updateInterval = setInterval(this.update, timeout);
-    }
-
-    public stopUpdateInterval(): void {
-        if (this.updateInterval !== null)
-            clearInterval(this.updateInterval);
-        this.updateInterval = null;
+    protected render(): void {
+        for (const element of this.elements) {
+            if (this.isRenderable(element))
+                element.render(this.getCanvasRenderer());
+        }
     }
 
     public update(): void {
@@ -37,25 +34,17 @@ export default abstract class Canvas {
         this.lastUpdatedTime = currentUpdateTime;
     }
 
-    private render(): void {
-        for (const element of this.elements) {
-            if (this.isRenderable(element))
-                element.render(this.getCanvasRenderer());
-        }
-    }
-
     protected abstract getCanvasRenderer(): Renderer;
 
     private isRenderable(object: any): object is Renderable {
         return "render" in object;
     }
 
-    private move(seconds: number): void {
+    protected move(seconds: number): void {
         for (const element of this.elements) {
             if (this.isMoveable(element))
                 element.moveByVelocity(seconds);
         }
-        
     }
 
     private isMoveable(object: any): object is Moveable {
@@ -64,5 +53,6 @@ export default abstract class Canvas {
 
     public addElement(element: Element) {
         this.elements.push(element);
+        this.update();
     }
 }

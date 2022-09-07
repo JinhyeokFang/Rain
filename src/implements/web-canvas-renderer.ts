@@ -25,10 +25,11 @@ export default class WebCanvasRenderer implements Renderer {
     }
 
     drawLine(from: coordinate, to: coordinate): void {
-        this.canvasContext.moveTo(from.x, from.y);
         this.canvasContext.beginPath();
-        this.canvasContext.moveTo(to.x, to.y);
+        this.canvasContext.moveTo(from.x, from.y);
+        this.canvasContext.lineTo(to.x, to.y);
         this.canvasContext.closePath();
+        this.canvasContext.stroke();
     }
 
     drawFilledRectangle(from: coordinate, to: coordinate): void {

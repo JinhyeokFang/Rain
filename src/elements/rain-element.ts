@@ -48,7 +48,8 @@ export default class RainElement extends Element implements Renderable, Moveable
     public render(renderer: Renderer): void {
         const startLinePosition = this.getPosition();
         const endLinePosition = { x: this.getPosition().x, y: this.getPosition().y };
-        endLinePosition.y -= 5;
+        endLinePosition.y -= 100;
+        renderer.setLineSize(5);
         renderer.setColor(this.color);
         renderer.drawLine(startLinePosition, endLinePosition);
     }
