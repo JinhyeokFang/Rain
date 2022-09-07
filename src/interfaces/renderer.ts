@@ -8,4 +8,5 @@ export default interface Renderer {
     drawLine(from: Coordinate, to: Coordinate): void;
     drawStrokeRectangle(from: Coordinate, to: Coordinate): void;
     drawFilledRectangle(from: Coordinate, to: Coordinate): void;
+    clear(width: number, height: number): void;
 }

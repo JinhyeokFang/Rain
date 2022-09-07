@@ -39,4 +39,9 @@ export default class WebCanvasRenderer implements Renderer {
     drawStrokeRectangle(from: coordinate, to: coordinate): void {
         this.canvasContext.strokeRect(from.x, from.y, Math.abs(from.x - to.x), Math.abs(from.y - from.y));
     }
+
+    clear(width: number, height: number): void {
+        this.canvasContext.fillStyle = "white";
+        this.canvasContext.fillRect(0, 0, width, height);
+    }
 }

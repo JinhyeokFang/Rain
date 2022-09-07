@@ -40,7 +40,7 @@ export default class RainElement extends Element implements Renderable, Moveable
 
     public moveByVelocity(seconds: number): void {
         const newPosition: Coordinate = this.getPosition();
-        newPosition.y = this.velocity * seconds + 0.5 * (Math.pow(seconds, 2)) * this.acceleration; 
+        newPosition.y -= this.velocity * seconds + 0.5 * (Math.pow(seconds, 2)) * this.acceleration; 
         this.velocity += this.acceleration * seconds;
         this.setPosition(newPosition);
     }

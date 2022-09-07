@@ -6,10 +6,17 @@ import WebCanvas from "./implements/web-canvas";
 
 const canvasElement: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('canvas');
 const canvas = new WebCanvas(500, 500, canvasElement);
-const rainElement = new RainElementBuilder()
-    .setPosition({ x: 30, y: 30 })
+
+function createRain() {
+    const rainElement = new RainElementBuilder()
+    .setPosition({ x: Math.random() * 500, y: -50 })
     .setId(0)
-    .setVelocity(0)
+    .setAcceleration(-10000)
     .build();
 
-canvas.addElement(rainElement);
+    canvas.addElement(rainElement);
+}
+
+setInterval(createRain, 50);
+
+canvas.setUpdateInterval(10);
