@@ -32,10 +32,10 @@ export default class WebCanvasRenderer implements Renderer {
     }
 
     drawFilledRectangle(from: coordinate, to: coordinate): void {
-        this.canvasContext.fillRect(from.x, from.y, abs(from.x - to.x), abs(from.y - from.y));
+        this.canvasContext.fillRect(from.x, from.y, Math.abs(from.x - to.x), Math.abs(from.y - from.y));
     }
 
     drawStrokeRectangle(from: coordinate, to: coordinate): void {
-        this.canvasContext.strokeRect(from.x, from.y, abs(from.x - to.x), abs(from.y - from.y));
+        this.canvasContext.strokeRect(from.x, from.y, Math.abs(from.x - to.x), Math.abs(from.y - from.y));
     }
 }
