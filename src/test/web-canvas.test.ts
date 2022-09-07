@@ -26,37 +26,4 @@ describe('a canvas has width and height', () => {
         expect(canvas.height).toEqual(600);
     });
 });
-
-describe('a canvas is rendering and moving elements', () => {
-    it('a canvas renders after add a element', () => {
-        const mockHTMLCanvasElement = new MockRenderableElement();
-        const canvas = new WebCanvas(400, 600, mockHTMLCanvasElement);
-        canvas.addElement(mockHTMLCanvasElement);
-
-        expect(mockHTMLCanvasElement.mockRenderFn).toBeCalled();
-    });
-    it('a canvas move elements after add a element', () => {
-        const mockHTMLCanvasElement = new MockMovableElement();
-        const canvas = new WebCanvas(400, 600, mockHTMLCanvasElement);
-        canvas.addElement(mockHTMLCanvasElement);
-
-        expect(mockHTMLCanvasElement.mockMoveFn).toBeCalled();
-    });
-});
-
-class MockRenderableElement extends Element implements Renderable {
-    public mockRenderFn = jest.fn();
-
-    render(renderer: Renderer): void {
-        this.mockRenderFn(renderer);
-    }
-}
-
-class MockMovableElement extends Element implements Moveable {
-    public mockMoveFn = jest.fn();
-
-    moveByVelocity(seconds: number): void {
-        this.mockMoveFn(seconds);
-    }
-}
  

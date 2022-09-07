@@ -6,7 +6,10 @@ import Element from "./element";
 export default abstract class Canvas {
     public readonly width = 100;
     public readonly height = 100;
-    private elements: Element[];
+    private elements: Element[] = [];
+    private lastUpdatedTime: Date = new Date();
+    // READIT: the code below has dependency to client-side javascript
+    private updateInterval: number;
 
     constructor(width: number, height: number) {
         if (width <= 0)
@@ -17,7 +20,20 @@ export default abstract class Canvas {
         this.height = 100;
     }
 
-    protected abstract getCanvasRenderer(): Renderer;
+    public startUpdateInterval(timeout: number): void {
+        this.updateInterval = setInterval(this.update, timeout);
+    }
+
+    public stopUpdateInterval(): void {
+        clearInterval(this.updateInterval);
+    }
+
+    public update(): void {
+        const currentUpdateTime = new Date();
+        this.render();
+        this.move((this.lastUpdatedTime.getTime() - currentUpdateTime.getTime()) / 1000);
+        this.lastUpdatedTime = currentUpdateTime;
+    }
 
     private render(): void {
         for (const element of this.elements) {
@@ -25,6 +41,8 @@ export default abstract class Canvas {
                 element.render(this.getCanvasRenderer());
         }
     }
+
+    protected abstract getCanvasRenderer(): Renderer;
 
     private isRenderable(object: any): object is Renderable {
         return "render" in object;
