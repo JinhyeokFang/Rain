@@ -9,7 +9,7 @@ export default abstract class Canvas {
     private elements: Element[] = [];
     private lastUpdatedTime: Date = new Date();
     // READIT: the code below has dependency to client-side javascript
-    private updateInterval: number;
+    private updateInterval: number | null = null;
 
     constructor(width: number, height: number) {
         if (width <= 0)
@@ -25,7 +25,9 @@ export default abstract class Canvas {
     }
 
     public stopUpdateInterval(): void {
-        clearInterval(this.updateInterval);
+        if (this.updateInterval !== null)
+            clearInterval(this.updateInterval);
+        this.updateInterval = null;
     }
 
     public update(): void {
